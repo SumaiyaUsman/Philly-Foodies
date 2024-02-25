@@ -6,17 +6,24 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#ecf0d7"
+    tools:context=".MainActivity"
+    >
 
     <TextView
         android:id="@+id/user_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <Button
-        android:text="@string/logout"
+    <android.widget.Button
         android:id="@+id/logout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:background="@drawable/button_round"
+        android:textAllCaps="false"
+        android:text="Logout"
+    />
 
 </LinearLayout>

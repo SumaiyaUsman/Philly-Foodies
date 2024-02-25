@@ -48,6 +48,7 @@ public class Register extends AppCompatActivity {
         buttonReg = findViewById(R.id.btn_register);
         progressBar = findViewById(R.id.progressBar);
         textView = findViewById(R.id.loginNow);
+
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
