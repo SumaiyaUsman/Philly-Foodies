@@ -1,0 +1,7 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- First background -->
+    <item android:drawable="@color/white" />
+
+    <!-- Second background -->
+    <item android:drawable="@drawable/border" />
+</layer-list>
