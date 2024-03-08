@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Login extends AppCompatActivity {
 
@@ -92,7 +94,12 @@ public class Login extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_SHORT).show();
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    // Write user data to the database
+                                    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(user.getUid());
+                                    userRef.child("email").setValue(user.getEmail());
+                                    // You can add more user information to store in the database
+                                    Toast.makeText(Login.this, "Login successful", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(getApplicationContext(), ResultLogin.class);
                                     startActivity(intent);
                                     finish();
