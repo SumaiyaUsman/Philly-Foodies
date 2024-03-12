@@ -31,7 +31,7 @@ public class Register extends AppCompatActivity {
 
     private static final String TAG = "RegisterActivity"; // Move the declaration here
 
-    TextInputEditText editTextEmail, editTextPassword;
+    TextInputEditText editTextEmail, editTextPassword, editTextName, editTextMobile, editTextUsername;
     Button buttonReg;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
@@ -58,6 +58,9 @@ public class Register extends AppCompatActivity {
         buttonReg = findViewById(R.id.btn_register);
         progressBar = findViewById(R.id.progressBar);
         textView = findViewById(R.id.loginNow);
+        editTextName = findViewById(R.id.name);
+        editTextMobile = findViewById(R.id.mobile);
+        editTextUsername = findViewById(R.id.username);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("message");
@@ -122,25 +125,28 @@ public class Register extends AppCompatActivity {
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
+                                    // User registration successful
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     // Write user data to the database
                                     DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("users").child(user.getUid());
-                                    userRef.child("email").setValue(user.getEmail());
-                                    // You can add more user information to store in the database
-                                    Toast.makeText(Register.this, "Account created",
-                                            Toast.LENGTH_SHORT).show();
+                                    userRef.child("email").setValue(email);
+                                    userRef.child("name").setValue(editTextName.getText().toString());
+                                    userRef.child("mobile").setValue(editTextMobile.getText().toString());
+                                    userRef.child("username").setValue(editTextUsername.getText().toString());
+                                    // Navigate to login page or perform other actions
+                                    Toast.makeText(Register.this, "Account created", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(getApplicationContext(), Login.class);
                                     startActivity(intent);
                                     finish();
                                 } else {
                                     // If sign in fails, display a message to the user.
-                                    Toast.makeText(Register.this, "Authentication failed",
-                                            Toast.LENGTH_SHORT).show();
+                                    Log.e(TAG, "createUserWithEmail:failure", task.getException()); // Log the error
+                                    Toast.makeText(Register.this, "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
+
             }
         });
 
