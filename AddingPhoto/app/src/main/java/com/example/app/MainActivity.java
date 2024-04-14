@@ -1,49 +1,51 @@
 package com.example.app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.example.app.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-    FirebaseAuth auth;
-    Button button;
-    TextView textView;
-    FirebaseUser user;
+    ActivityMainBinding binding;
+
+    private static final int HOME_MENU_ID = R.id.home_icon;
+    private static final int TRUCK_MENU_ID = R.id.truck_icon;
+    private static final int POST_MENU_ID = R.id.post_icon;
+    private static final int MAP_MENU_ID = R.id.map_icon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        replaceFragment(getSupportFragmentManager(), new HomeFragment());
 
-        auth = FirebaseAuth.getInstance();
-        button = findViewById(R.id.logout);
-        textView = findViewById(R.id.user_details);
-        user = auth.getCurrentUser();
-        if (user == null) {
-            Intent intent = new Intent(getApplicationContext(), Login.class);
-            startActivity(intent);
-            finish();
-        }
-        else {
-            textView.setText(user.getEmail());
-        }
+        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), Login.class);
-                startActivity(intent);
-                finish();
+            if (itemId == HOME_MENU_ID) {
+                replaceFragment(getSupportFragmentManager(), new HomeFragment());
+            } else if (itemId == TRUCK_MENU_ID) {
+                replaceFragment(getSupportFragmentManager(), new TrucksFragment());
+            } else if (itemId == POST_MENU_ID) {
+                replaceFragment(getSupportFragmentManager(), new PostsFragment());
+            } else if (itemId == MAP_MENU_ID) {
+                replaceFragment(getSupportFragmentManager(), new MapFragment());
             }
+
+            return true;
         });
     }
+
+    private void replaceFragment(FragmentManager fragmentManager, Fragment fragment){
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, fragment);
+        fragmentTransaction.commit();
+    }
+
 }

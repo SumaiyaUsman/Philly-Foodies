@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
     android:layout_height="match_parent"
     android:background="@color/beige"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity">
 
     <android.widget.Button
         android:id="@+id/btn_map"
@@ -19,7 +19,7 @@
         android:layout_marginBottom="30dp"
         android:textAllCaps="false"
         android:text="Check the Foodtrucks"
-    />
+        />
 
     <android.widget.Button
         android:id="@+id/btn_post"
@@ -31,7 +31,19 @@
         android:layout_marginBottom="30dp"
         android:textAllCaps="false"
         android:text="View the Posts"
-    />
+        />
+
+    <android.widget.Button
+        android:id="@+id/btn_logout"
+        android:layout_width="195dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:background="@drawable/button_round"
+        android:layout_marginBottom="30dp"
+        android:textAllCaps="false"
+        android:text="Logout"
+        />
 
     <TextView
         android:id="@+id/goback"
@@ -41,6 +53,13 @@
         android:textColor="#f0a732"
         android:textSize="16sp"
         android:text="Go back to Main"
-    />
+        />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        app:labelVisibilityMode="labeled"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav_menu"/>
 </LinearLayout>
