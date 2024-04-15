@@ -72,7 +72,7 @@ public class ResultLogin extends AppCompatActivity {
                 // Handle home menu item click
             } else if (itemId == R.id.truck_icon) {
                 // Handle truck menu item click
-            } else if (itemId == R.id.post_icon) {
+            } else if (itemId == R.id.posts_icon) {
                 // Handle post menu item click
             } else if (itemId == R.id.map_icon) {
                 Intent intent = new Intent(ResultLogin.this, map.class);

@@ -1,51 +1,60 @@
 package com.example.app;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.os.Bundle;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import com.example.app.databinding.ActivityMainBinding;
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
-public class MainActivity extends AppCompatActivity {
+    BottomNavigationView bottomNavigationView;
 
-    ActivityMainBinding binding;
-
-    private static final int HOME_MENU_ID = R.id.home_icon;
-    private static final int TRUCK_MENU_ID = R.id.truck_icon;
-    private static final int POST_MENU_ID = R.id.post_icon;
-    private static final int MAP_MENU_ID = R.id.map_icon;
+    TrucksFragment trucksFragment = new TrucksFragment();
+    MapFragment mapFragment = new MapFragment();
+    HomeFragment homeFragment = new HomeFragment();
+    PostsFragment postsFragment = new PostsFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        replaceFragment(getSupportFragmentManager(), new HomeFragment());
+        setContentView(R.layout.activity_main);
 
-        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-            int itemId = item.getItemId();
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        bottomNavigationView.setSelectedItemId(R.id.truck_icon);
+    }
 
-            if (itemId == HOME_MENU_ID) {
-                replaceFragment(getSupportFragmentManager(), new HomeFragment());
-            } else if (itemId == TRUCK_MENU_ID) {
-                replaceFragment(getSupportFragmentManager(), new TrucksFragment());
-            } else if (itemId == POST_MENU_ID) {
-                replaceFragment(getSupportFragmentManager(), new PostsFragment());
-            } else if (itemId == MAP_MENU_ID) {
-                replaceFragment(getSupportFragmentManager(), new MapFragment());
-            }
-
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.truck_icon) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flFragment, trucksFragment)
+                    .commit();
             return true;
-        });
+        } else if (item.getItemId() == R.id.map_icon) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flFragment, mapFragment)
+                    .commit();
+            return true;
+        } else if (item.getItemId() == R.id.home_icon) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flFragment, homeFragment)
+                    .commit();
+            return true;
+        } else if (item.getItemId() == R.id.posts_icon) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.flFragment, postsFragment)
+                    .commit();
+            return true;
+        }
+        return false;
     }
-
-    private void replaceFragment(FragmentManager fragmentManager, Fragment fragment){
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frame_layout, fragment);
-        fragmentTransaction.commit();
-    }
-
 }
