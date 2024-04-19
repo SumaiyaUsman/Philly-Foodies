@@ -14,11 +14,16 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class PostActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText mTitle, mContents;
     private final int GALLERY_REQ_CODE = 100;
     ImageView img1, img2, img3;
+    Button reset;
+
+    ArrayList<Uri> uri = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +33,24 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
         mTitle = findViewById(R.id.post_title_edit);
         mContents = findViewById(R.id.post_contents_edit);
 
+        reset = findViewById(R.id.btn_reset);
+
         findViewById(R.id.post_save_button).setOnClickListener(this);
 
         img1 = findViewById(R.id.img1);
         img2 = findViewById(R.id.img2);
         img3 = findViewById(R.id.img3);
         Button btnGallery = findViewById(R.id.btnGallery);
+
+        reset.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                uri.clear();
+
+                img1.setImageURI(null);
+                img2.setImageURI(null);
+                img3.setImageURI(null);
+            }
+        });
 
         btnGallery.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,10 +99,6 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         }
-        else if(resultCode == RESULT_CANCELED) {
-            Toast.makeText(this, "No Picture Added", Toast.LENGTH_LONG).show();
-        }
-
     }
 
     @Override

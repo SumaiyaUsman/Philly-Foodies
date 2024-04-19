@@ -69,11 +69,14 @@ public class ResultLogin extends AppCompatActivity {
             int itemId = item.getItemId();
 
             if (itemId == R.id.home_icon) {
-                // Handle home menu item click
+                Intent intent = new Intent(ResultLogin.this, HomeFragment.class);
+                startActivity(intent);
             } else if (itemId == R.id.truck_icon) {
-                // Handle truck menu item click
+                Intent intent = new Intent(ResultLogin.this, TrucksFragment.class);
+                startActivity(intent);
             } else if (itemId == R.id.posts_icon) {
-                // Handle post menu item click
+                Intent intent = new Intent(ResultLogin.this, PostActivity.class);
+                startActivity(intent);
             } else if (itemId == R.id.map_icon) {
                 Intent intent = new Intent(ResultLogin.this, map.class);
                 startActivity(intent);
