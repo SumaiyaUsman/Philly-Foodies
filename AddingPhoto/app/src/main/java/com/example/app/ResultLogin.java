@@ -63,7 +63,7 @@ public class ResultLogin extends AppCompatActivity {
             }
         });
 
-        // Set up bottom navigation view
+        // Author: Sumaiya Usman, 04/13/2024
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
