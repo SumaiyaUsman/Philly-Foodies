@@ -72,7 +72,7 @@ public class ResultLogin extends AppCompatActivity {
                 Intent intent = new Intent(ResultLogin.this, HomeFragment.class);
                 startActivity(intent);
             } else if (itemId == R.id.truck_icon) {
-                Intent intent = new Intent(ResultLogin.this, TrucksFragment.class);
+                Intent intent = new Intent(ResultLogin.this, item_truck.class);
                 startActivity(intent);
             } else if (itemId == R.id.posts_icon) {
                 Intent intent = new Intent(ResultLogin.this, PostActivity.class);

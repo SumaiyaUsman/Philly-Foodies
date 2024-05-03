@@ -1,60 +1,55 @@
 package com.example.app;
 
 import android.os.Bundle;
-import android.view.MenuItem;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
 
-    TrucksFragment trucksFragment = new TrucksFragment();
-    MapFragment mapFragment = new MapFragment();
-    HomeFragment homeFragment = new HomeFragment();
-    PostsFragment postsFragment = new PostsFragment();
+    TrucksFragment trucksFragment;
+    MapFragment mapFragment;
+    HomeFragment homeFragment;
+    PostsFragment postsFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setOnNavigationItemSelectedListener(this);
-        bottomNavigationView.setSelectedItemId(R.id.truck_icon);
-    }
+        // Initialize fragments
+        trucksFragment = new TrucksFragment();
+        mapFragment = new MapFragment();
+        homeFragment = new HomeFragment();
+        postsFragment = new PostsFragment();
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.truck_icon) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.flFragment, trucksFragment)
-                    .commit();
-            return true;
-        } else if (item.getItemId() == R.id.map_icon) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.flFragment, mapFragment)
-                    .commit();
-            return true;
-        } else if (item.getItemId() == R.id.home_icon) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.flFragment, homeFragment)
-                    .commit();
-            return true;
-        } else if (item.getItemId() == R.id.posts_icon) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.flFragment, postsFragment)
-                    .commit();
-            return true;
-        }
-        return false;
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            Fragment selectedFragment = null;
+
+            if (item.getItemId() == R.id.truck_icon) {
+                selectedFragment = trucksFragment;
+            } else if (item.getItemId() == R.id.map_icon) {
+                selectedFragment = mapFragment;
+            } else if (item.getItemId() == R.id.home_icon) {
+                selectedFragment = homeFragment;
+            } else if (item.getItemId() == R.id.posts_icon) {
+                selectedFragment = postsFragment;
+            }
+
+            if (selectedFragment != null) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.flFragment, selectedFragment)
+                        .commit();
+                return true;
+            }
+
+            return false;
+        });
+
+        bottomNavigationView.setSelectedItemId(R.id.truck_icon);
     }
 }
