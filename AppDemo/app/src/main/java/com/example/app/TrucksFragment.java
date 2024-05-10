@@ -25,7 +25,7 @@ public class TrucksFragment extends Fragment {
         // Add sample truck data
         truckList.add(new Truck("Happy Star", "33RD And Arch St Philadelphia, PA 19104, Powelton Village, University City", "Chinese"));
         truckList.add(new Truck("Pete's Lunch Box", "11 N 33rd St Philadelphia, PA 19104, Powelton Village, University City", "American"));
-        truckList.add(new Truck("Aladdin Shawarma", "3508 Market St Philadelphia, PA 19104, Powelton Village, University City", "Arabic"));
+        truckList.add(new Truck("Aladdin Shawarma", "3508 Market St Philadelphia, PA 19104, Powelton Village, University City", "Halal"));
         truckList.add(new Truck("Happy Sunshine", "33RD And Arch St Philadelphia, PA 19104, Powelton Village, University City", "American"));
         truckList.add(new Truck("Judy's Kitchen", "3300 Arch St Food Truck Philadelphia, PA 19104, Powelton Village, University City", "American"));
         truckList.add(new Truck("Nanu's Hot Nashville Chicken", "3301 Market St, Philadelphia, PA 19104, Powelton Village, University City", "Halal"));

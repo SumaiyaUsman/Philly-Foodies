@@ -12,4 +12,5 @@
     <string name="truck_name">Truck Name</string>
     <string name="truck_location">Truck Location</string>
     <string name="cuisine">Cuisine</string>
+    <string name="HappyStar">happystar\n</string>
 </resources>
