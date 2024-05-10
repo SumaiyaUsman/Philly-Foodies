@@ -46,7 +46,7 @@ public class TruckAdapter extends RecyclerView.Adapter<TruckAdapter.TruckViewHol
             cuisineTypeTextView = itemView.findViewById(R.id.cuisineTypeTextView); // Add TextView for cuisine type
         }
 
-        public void bind(Truck truck) {
+        public void bind(@NonNull Truck truck) {
             nameTextView.setText(truck.getName());
             locationTextView.setText(truck.getLocation());
             cuisineTypeTextView.setText(truck.getCuisineType()); // Set cuisine type text
