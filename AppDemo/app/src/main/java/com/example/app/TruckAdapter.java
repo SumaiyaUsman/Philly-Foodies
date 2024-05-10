@@ -37,16 +37,19 @@ public class TruckAdapter extends RecyclerView.Adapter<TruckAdapter.TruckViewHol
     static class TruckViewHolder extends RecyclerView.ViewHolder {
         private final TextView nameTextView;
         private final TextView locationTextView;
+        private final TextView cuisineTypeTextView;
 
         public TruckViewHolder(@NonNull View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.nameTextView);
             locationTextView = itemView.findViewById(R.id.locationTextView);
+            cuisineTypeTextView = itemView.findViewById(R.id.cuisineTypeTextView); // Add TextView for cuisine type
         }
 
         public void bind(Truck truck) {
             nameTextView.setText(truck.getName());
             locationTextView.setText(truck.getLocation());
+            cuisineTypeTextView.setText(truck.getCuisineType()); // Set cuisine type text
         }
     }
 }

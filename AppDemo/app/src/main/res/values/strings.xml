@@ -9,4 +9,7 @@
     <string name="logout">Logout</string>
     <string name="name">Name</string>
     <string name="user_name">User Name</string>
+    <string name="truck_name">Truck Name</string>
+    <string name="truck_location">Truck Location</string>
+    <string name="cuisine">Cuisine</string>
 </resources>
