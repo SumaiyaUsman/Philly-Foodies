@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="beige">#ECF0D7</color>
+    <color name="black">#FF000000</color>
+    <color name="light_gray">#D3D3D3</color>
+    <color name="red">#FF0000</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">App</string>
+    <string name="click_to_login">Click to Login</string>
+    <string name="click_to_register">Click to Register</string>
+    <string name="email">Email</string>
+    <string name="firebase_database_url" translatable="false">https://login-register-firebase-45764-default-rtdb.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">989557151698</string>
+    <string name="google_api_key" translatable="false">AIzaSyCZHx7XyIQcRapfZiddFzo2k93Dr_SNYOo</string>
+    <string name="google_app_id" translatable="false">1:989557151698:android:a036f0b0a10298525d1a0b</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCZHx7XyIQcRapfZiddFzo2k93Dr_SNYOo</string>
+    <string name="google_storage_bucket" translatable="false">login-register-firebase-45764.appspot.com</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="project_id" translatable="false">login-register-firebase-45764</string>
+    <string name="register">Register</string>
+    <string name="user_name">User Name</string>
+    <style name="Base.Theme.App" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.App" parent="Base.Theme.App"/>
+</resources>
