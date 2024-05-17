@@ -34,6 +34,12 @@ public class TruckAdapter extends RecyclerView.Adapter<TruckAdapter.TruckViewHol
         return truckList.size();
     }
 
+    public void updateList(List<Truck> filteredList) {
+        truckList.clear();
+        truckList.addAll(filteredList);
+        notifyDataSetChanged();
+    }
+
     static class TruckViewHolder extends RecyclerView.ViewHolder {
         private final TextView nameTextView;
         private final TextView locationTextView;
