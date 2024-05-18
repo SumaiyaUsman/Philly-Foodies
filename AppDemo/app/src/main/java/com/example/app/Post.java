@@ -1,7 +1,7 @@
 package com.example.app;
 
-
 import java.util.Date;
+import java.util.List;
 
 public class Post {
 
@@ -9,8 +9,10 @@ public class Post {
     private String title;
     private String contents;
     private Date date;
+    private List<String> imageUrls;
 
     public Post() {
+
     }
 
     public Post(String documentId, String title, String contents) {
@@ -18,6 +20,8 @@ public class Post {
         this.title = title;
         this.contents = contents;
     }
+
+    // Getters and setters
 
     public String getDocumentId() {
         return documentId;
@@ -51,6 +55,14 @@ public class Post {
         this.date = date;
     }
 
+    public List<String> getImageUrls() {
+        return imageUrls;
+    }
+
+    public void setImageUrls(List<String> imageUrls) {
+        this.imageUrls = imageUrls;
+    }
+
     @Override
     public String toString() {
         return "Post{" +
@@ -58,6 +70,7 @@ public class Post {
                 ", title='" + title + '\'' +
                 ", contents='" + contents + '\'' +
                 ", date=" + date +
+                ", imageUrls=" + imageUrls +
                 '}';
     }
 }
