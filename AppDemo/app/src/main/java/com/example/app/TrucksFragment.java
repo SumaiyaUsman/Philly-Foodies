@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -95,7 +96,6 @@ public class TrucksFragment extends Fragment {
                     .filter(truck -> truck.getCuisineType().equalsIgnoreCase(cuisine))
                     .collect(Collectors.toList());
         }
-
         truckAdapter.updateList(filteredList);
     }
 }
