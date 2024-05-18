@@ -3,52 +3,73 @@ package com.example.app;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder> {
 
-    private List<Post> datas;
+    private List<Post> mPosts;
 
-    public PostAdapter(List<Post> datas) {
-        this.datas = datas;
+    public PostAdapter(List<Post> posts) {
+
+        this.mPosts = posts;
     }
 
+    //From Blog post(loasd.tistory, zynar.tistory, aries574.tistory) 5/17/24
+    //Mod by Chaeyoon Song 5/17/24
     @NonNull
     @Override
     public PostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new PostViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_post, parent, false));
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_post, parent, false);
+        return new PostViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
-        Post data = datas.get(position);
-        holder.title.setText(data.getTitle());
-        holder.contents.setText(data.getContents());
+        Post post = mPosts.get(position);
+        holder.titleTextView.setText(post.getTitle());
+        holder.contentsTextView.setText(post.getContents());
 
+        List<String> imageUrls = post.getImageUrls();
+        if (imageUrls != null) {
+            if (imageUrls.size() > 0) {
+                Glide.with(holder.itemView.getContext()).load(imageUrls.get(0)).into(holder.imageView1);
+            }
+            if (imageUrls.size() > 1) {
+                Glide.with(holder.itemView.getContext()).load(imageUrls.get(1)).into(holder.imageView2);
+            }
+            if (imageUrls.size() > 2) {
+                Glide.with(holder.itemView.getContext()).load(imageUrls.get(2)).into(holder.imageView3);
+            }
+        }
     }
 
     @Override
     public int getItemCount() {
-        return datas.size();
+        return mPosts.size();
     }
 
-    class PostViewHolder extends RecyclerView.ViewHolder {
-
-        private TextView username;
-        private TextView title;
-        private TextView contents;
+    public static class PostViewHolder extends RecyclerView.ViewHolder {
+        TextView titleTextView;
+        TextView contentsTextView;
+        ImageView imageView1;
+        ImageView imageView2;
+        ImageView imageView3;
 
         public PostViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            title = itemView.findViewById(R.id.item_post_title);
-            contents = itemView.findViewById(R.id.item_post_contents);
+            titleTextView = itemView.findViewById(R.id.item_post_title);
+            contentsTextView = itemView.findViewById(R.id.item_post_contents);
+            imageView1 = itemView.findViewById(R.id.item_post_image1);
+            imageView2 = itemView.findViewById(R.id.item_post_image2);
+            imageView3 = itemView.findViewById(R.id.item_post_image3);
         }
     }
 }
-
