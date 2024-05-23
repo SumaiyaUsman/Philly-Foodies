@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    tools:context=".Register"
+    android:background="@color/beige">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20sp"
+        android:gravity="center"
+        android:text="@string/HappyStar"
+        android:textColor="#f0a732"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        tools:text="Happy Star Food Truck Menu" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Platters" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="570dp">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="345dp"
+            android:layout_height="158dp"
+            android:layout_weight="1"
+            android:text="Plain Lo Mein     $6.00\nChicken Lo Mein     $7.00\nBeef Lo Mein     $8.00\nShrimp Lo Mein     $8.00\nPepper Steak     $8.00\nPlain Broccoli     $6.00\nChicken Broccoli     $7.00\nBeef Broccoli     $8.00\nShrimp Broccoli     $8.00\nSpicy Chicken     $8.00\nSpicy Pork     $8.00\nTeriyaki Chicken     $8.00\nGeneral Tso Chicken     $8.00\nPlain Fried Rice     $5.00\nChicken Fried Rice     $6.00\nBeef Fried Rice     $7.00\nShrimp Fried Rice     $7.00" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

@@ -1,3 +1,4 @@
+<!--Mod by Sumaiya Usman 5/23/24-->
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -57,6 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Happy Star"
+        android:id="@+id/happystar"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -78,6 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pete's Lunch Box"
+        android:id="@+id/peteslunchbox"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -99,6 +102,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Aladdin Shawarma"
+        android:id="@+id/aladdinshawarma"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -120,6 +124,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Happy Sunshine"
+        android:id="@+id/happysunshine"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -141,6 +146,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Judy's Kitchen"
+        android:id="@+id/judyskitchen"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -162,6 +168,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nanu's Hot Nashville Chicken"
+        android:id="@+id/nanus"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -183,6 +190,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="MEGA"
+        android:id="@+id/mega"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -204,6 +212,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Yellow Halal"
+        android:id="@+id/yellowhalal"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -225,6 +234,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Fruit Smoothie"
+        android:id="@+id/fruitsmoothie"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -246,6 +256,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Divine Flavored"
+        android:id="@+id/divineflavored"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -267,6 +278,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Richky"
+        android:id="@+id/richky"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -288,6 +300,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Kami"
+        android:id="@+id/kami"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -309,6 +322,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NY Gyro"
+        android:id="@+id/nygyro"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -330,6 +344,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Philly Gyro"
+        android:id="@+id/phillygyro"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -351,6 +366,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hornes"
+        android:id="@+id/hornes"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -372,6 +388,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Jimmy"
+        android:id="@+id/jimmy"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -393,6 +410,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lennox"
+        android:id="@+id/lennox"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -414,6 +432,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ricky's"
+        android:id="@+id/rickys"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -435,6 +454,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="HJ"
+        android:id="@+id/hj"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -456,6 +476,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Friendly Halal"
+        android:id="@+id/friendlyhalal"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -477,6 +498,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sue's Lunch Truck"
+        android:id="@+id/sueslunchtruck"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -498,6 +520,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mai's Oriental Food"
+        android:id="@+id/maisorientalfood"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -519,6 +542,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cucina Zapata"
+        android:id="@+id/cucinazapata"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -540,6 +564,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Telly's"
+        android:id="@+id/tellys"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -561,6 +586,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="WokWorks"
+        android:id="@+id/wokworks"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -582,6 +608,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Girale's"
+        android:id="@+id/girales"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
@@ -603,6 +630,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Halal Cart"
+        android:id="@+id/halalcart"
         android:textSize="16sp"
         android:textStyle="bold"/>
 
