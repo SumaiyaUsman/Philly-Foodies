@@ -9,6 +9,8 @@
     tools:context=".Register"
     android:background="@color/beige">
 
+    <!--Mod by Sumaiya Usman 5/23/24-->
+    <!--Mod by Chaeyoon Song 5/24/24-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,9 +18,9 @@
         android:gravity="center"
         android:text="@string/HappyStar"
         android:textColor="#f0a732"
-        android:textSize="25sp"
+        android:textSize="30sp"
         android:textStyle="bold"
-        tools:text="Happy Star Food Truck Menu" />
+        android:fontFamily="@font/heycomic" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -29,27 +31,38 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:ems="10"
+        android:textSize="25sp"
+        android:textStyle="bold"
         android:inputType="text"
         android:text="Platters" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="570dp">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="4dp">
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="345dp"
-            android:layout_height="158dp"
+            android:layout_width="199dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Plain Lo Mein     $6.00\nChicken Lo Mein     $7.00\nBeef Lo Mein     $8.00\nShrimp Lo Mein     $8.00\nPepper Steak     $8.00\nPlain Broccoli     $6.00\nChicken Broccoli     $7.00\nBeef Broccoli     $8.00\nShrimp Broccoli     $8.00\nSpicy Chicken     $8.00\nSpicy Pork     $8.00\nTeriyaki Chicken     $8.00\nGeneral Tso Chicken     $8.00\nPlain Fried Rice     $5.00\nChicken Fried Rice     $6.00\nBeef Fried Rice     $7.00\nShrimp Fried Rice     $7.00" />
+            android:text="Plain Lo Mein\nChicken Lo Mein\nBeef Lo Mein\nShrimp Lo Mein\nPepper Steak\nPlain Broccoli\nChicken Broccoli\nBeef Broccoli\nShrimp Broccoli\nSpicy Chicken\nSpicy Pork\nTeriyaki Chicken\nGeneral Tso Chicken\nPlain Fried Rice\nChicken Fried Rice\nBeef Fried Rice\nShrimp Fried Rice"
+            android:textSize="18sp" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="$6.00\n$7.00\n$8.00\n$8.00\n$8.00\n$6.00\n$7.00\n$8.00\n$8.00\n$8.00\n$8.00\n$8.00\n$8.00\n$5.00\n$6.00\n$7.00\n$7.00"
+            android:textSize="18sp" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-
+    </LinearLayout>
 
 </LinearLayout>

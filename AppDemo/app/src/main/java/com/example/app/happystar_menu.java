@@ -1,12 +1,8 @@
 package com.example.app;
 
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class happystar_menu extends AppCompatActivity {
 
@@ -14,5 +10,11 @@ public class happystar_menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_happystar_menu);
+
+        //Author: Chaeyoon Song 5/24/24
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
     }
 }

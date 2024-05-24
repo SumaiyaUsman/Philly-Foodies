@@ -12,7 +12,7 @@
     <string name="truck_name">Truck Name</string>
     <string name="truck_location">Truck Location</string>
     <string name="cuisine">Cuisine</string>
-    <string name="HappyStar">happystar\n</string>
+    <string name="HappyStar">Happy Star Food Truck Menu</string>
     <string name="select_cuisine">Select Cuisine</string>
     <string-array name="cuisines_array">
         <item>All</item>
