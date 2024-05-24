@@ -6,6 +6,7 @@ public class FirebaseID {
     public static String documentID = "documentID";
     public static String email = "email";
     public static String password = "password";
+    public static String username = "username";
     public static String title = "title";
     public static String contents = "contents";
     public static String timestamp = "timestamp";

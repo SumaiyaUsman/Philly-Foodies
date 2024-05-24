@@ -8,6 +8,7 @@ public class Post {
     private String documentId;
     private String title;
     private String contents;
+    private String username;
     private Date date;
     private List<String> imageUrls;
 
@@ -15,10 +16,11 @@ public class Post {
 
     }
 
-    public Post(String documentId, String title, String contents) {
+    public Post(String documentId, String title, String contents, String username) {
         this.documentId = documentId;
         this.title = title;
         this.contents = contents;
+        this.username = username;
     }
 
     // Getters and setters
@@ -47,6 +49,14 @@ public class Post {
         this.contents = contents;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public Date getDate() {
         return date;
     }
@@ -69,6 +79,7 @@ public class Post {
                 "documentId='" + documentId + '\'' +
                 ", title='" + title + '\'' +
                 ", contents='" + contents + '\'' +
+                ", username='" + username + '\'' +
                 ", date=" + date +
                 ", imageUrls=" + imageUrls +
                 '}';

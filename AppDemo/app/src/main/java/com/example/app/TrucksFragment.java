@@ -54,6 +54,7 @@ public class TrucksFragment extends Fragment {
         });
 
         return rootView;
+
     }
 
     private void addSampleTruckData() {

@@ -35,6 +35,7 @@ import java.util.Map;
 public class PostActivity extends AppCompatActivity {
 
     private EditText mTitle, mContents;
+    private String username;
     private final int GALLERY_REQ_CODE = 100;
     ImageView img1, img2, img3;
     Button reset, save;
@@ -65,7 +66,6 @@ public class PostActivity extends AppCompatActivity {
         reset.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 uri.clear();
-
                 img1.setImageURI(null);
                 img2.setImageURI(null);
                 img3.setImageURI(null);
@@ -82,12 +82,38 @@ public class PostActivity extends AppCompatActivity {
             }
         });
 
+        // Fetch the username when the activity starts
+        fetchUsername();
+
         ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
+    }
+
+    //Author: Chaeyoon Song 5/23/24
+    private void fetchUsername() {
+        if (mAuth.getCurrentUser() != null) {
+            mStore.collection("users").document(mAuth.getCurrentUser().getUid())
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            if (task.isSuccessful() && task.getResult() != null) {
+                                username = task.getResult().getString("username");
+                                if (username == null) {
+                                    Toast.makeText(PostActivity.this, "Username not found in database", Toast.LENGTH_SHORT).show();
+                                }
+                            } else {
+                                Toast.makeText(PostActivity.this, "Failed to fetch username", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+        }
     }
 
     //From Youtube 'Roon Sky' 4/20/24
-    //Mod by Chaeyoon Song 5/17/24
+    //Mod by Chaeyoon Song 5/23/24
     public void savePost(View v) {
         String title = mTitle.getText().toString().trim();
         String contents = mContents.getText().toString().trim();
@@ -98,7 +124,12 @@ public class PostActivity extends AppCompatActivity {
         }
 
         if (mAuth.getCurrentUser() != null) {
-            String postId = mStore.collection(FirebaseID.post).document().getId();
+            if (username == null) {
+                Toast.makeText(this, "Username is not fetched yet, please wait", Toast.LENGTH_SHORT).show();
+                fetchUsername();
+                return;
+            }
+            String postId = mStore.collection("post").document().getId();
             uploadImages(postId, title, contents);
         } else {
             Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show();
@@ -109,7 +140,7 @@ public class PostActivity extends AppCompatActivity {
     //Mod by Chaeyoon Song 5/17/24
     private void uploadImages(String postId, String title, String contents) {
         if (uri.isEmpty()) {
-            savePostData(postId, title, contents, new ArrayList<>());
+            savePostData(postId, title, contents, null);
             return;
         }
 
@@ -135,23 +166,36 @@ public class PostActivity extends AppCompatActivity {
         }
     }
 
+    //Mod by Chaeyoon Song 5/23/24
     private void savePostData(String postId, String title, String contents, ArrayList<String> imageUrls) {
-        Map<String, Object> data = new HashMap<>();
-        data.put(FirebaseID.documentID, mAuth.getCurrentUser().getUid());
-        data.put(FirebaseID.title, title);
-        data.put(FirebaseID.contents, contents);
-        data.put(FirebaseID.timestamp, FieldValue.serverTimestamp());
-        data.put("imageUrls", imageUrls);
+        Map<String, Object> postMap = new HashMap<>();
+        postMap.put("title", title);
+        postMap.put("contents", contents);
+        postMap.put("username", username);
+        postMap.put("userId", mAuth.getCurrentUser().getUid());
+        postMap.put("timestamp", FieldValue.serverTimestamp());
+        if (imageUrls != null) {
+            postMap.put("imageUrls", imageUrls);
+        }
 
         //Author: Chaeyoon Song 5/17/24
-        mStore.collection(FirebaseID.post).document(postId).set(data, SetOptions.merge())
-                .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(this, "Post saved successfully", Toast.LENGTH_SHORT).show();
-                    finish();
-                })
-                .addOnFailureListener(e -> Toast.makeText(this, "Error saving post", Toast.LENGTH_SHORT).show());
+        //Mod by Chaeyoon Song 5/23/24
+        mStore.collection("post").document(postId)
+                .set(postMap, SetOptions.merge())
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(PostActivity.this, "Post saved successfully", Toast.LENGTH_SHORT).show();
+                            finish();
+                        } else {
+                            Toast.makeText(PostActivity.this, "Error saving post", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 

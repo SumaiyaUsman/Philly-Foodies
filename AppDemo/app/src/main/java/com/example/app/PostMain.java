@@ -10,7 +10,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -31,8 +30,6 @@ public class PostMain extends AppCompatActivity implements View.OnClickListener 
     private List<Post> mDatas;
     private FirebaseFirestore mStore = FirebaseFirestore.getInstance();
 
-    ImageView Back;
-
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,25 +41,16 @@ public class PostMain extends AppCompatActivity implements View.OnClickListener 
 
         findViewById(R.id.main_post_edit).setOnClickListener(this);
 
+
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.hide();
         }
-
-        Back = findViewById(R.id.back);
-        Back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ResultLogin.class);
-                startActivity(intent);
-                finish();
-            }
-        });
     }
 
     //From Youtube 'Roon Sky' 4/20/24
     //From Blog post(loasd.tistory, zynar.tistory, aries574.tistory) 5/17/24
-    //Mod by Chaeyoon Song 5/17/24
+    //Mod by Chaeyoon Song 5/23/24
     @Override
     protected void onStart() {
         super.onStart();
@@ -76,20 +64,23 @@ public class PostMain extends AppCompatActivity implements View.OnClickListener 
                             mDatas.clear();
                             for (DocumentSnapshot snap : queryDocumentSnapshots.getDocuments()) {
                                 Map<String, Object> shot = snap.getData();
-                                String documentID = shot.get(FirebaseID.documentID).toString();
-                                String title = shot.get(FirebaseID.title).toString();
-                                String contents = shot.get(FirebaseID.contents).toString();
 
-                                // Assuming Post has a constructor that takes these parameters and has setImageUrls method
-                                Post data = new Post(documentID, title, contents);
+                                if (shot != null) {
+                                    String documentID = shot.get(FirebaseID.documentID) != null ? shot.get(FirebaseID.documentID).toString() : "";
+                                    String title = shot.get(FirebaseID.title) != null ? shot.get(FirebaseID.title).toString() : "";
+                                    String contents = shot.get(FirebaseID.contents) != null ? shot.get(FirebaseID.contents).toString() : "";
+                                    String username = shot.get(FirebaseID.username) != null ? shot.get(FirebaseID.username).toString() : "Unknown User";
 
-                                // Handle the image URLs if present
-                                List<String> imageUrls = (List<String>) shot.get("imageUrls");
-                                if (imageUrls != null) {
-                                    data.setImageUrls(imageUrls);
+                                    Post data = new Post(documentID, title, contents, username);
+
+                                    // Handle the image URLs if present
+                                    List<String> imageUrls = (List<String>) shot.get("imageUrls");
+                                    if (imageUrls != null) {
+                                        data.setImageUrls(imageUrls);
+                                    }
+
+                                    mDatas.add(data);
                                 }
-
-                                mDatas.add(data);
                             }
                             if (mAdapter == null) {
                                 mAdapter = new PostAdapter(mDatas);

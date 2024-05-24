@@ -23,7 +23,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
     }
 
     //From Blog post(loasd.tistory, zynar.tistory, aries574.tistory) 5/17/24
-    //Mod by Chaeyoon Song 5/17/24
+    //From Youtube 'Roon Sky' 5/23/24
+    //Mod by Chaeyoon Song 5/23/24
     @NonNull
     @Override
     public PostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -36,6 +37,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         Post post = mPosts.get(position);
         holder.titleTextView.setText(post.getTitle());
         holder.contentsTextView.setText(post.getContents());
+        holder.usernameTextView.setText(post.getUsername());
 
         List<String> imageUrls = post.getImageUrls();
         if (imageUrls != null) {
@@ -53,12 +55,16 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
     @Override
     public int getItemCount() {
+
         return mPosts.size();
     }
 
+    //From Youtube 'Roon Sky' 5/23/24
+    //Mod by Chaeyoon Song 5/23/24
     public static class PostViewHolder extends RecyclerView.ViewHolder {
         TextView titleTextView;
         TextView contentsTextView;
+        TextView usernameTextView;
         ImageView imageView1;
         ImageView imageView2;
         ImageView imageView3;
@@ -67,6 +73,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             super(itemView);
             titleTextView = itemView.findViewById(R.id.item_post_title);
             contentsTextView = itemView.findViewById(R.id.item_post_contents);
+            usernameTextView = itemView.findViewById(R.id.item_post_username);
             imageView1 = itemView.findViewById(R.id.item_post_image1);
             imageView2 = itemView.findViewById(R.id.item_post_image2);
             imageView3 = itemView.findViewById(R.id.item_post_image3);

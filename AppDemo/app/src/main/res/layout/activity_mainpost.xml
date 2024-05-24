@@ -31,14 +31,4 @@
         app:backgroundTint="#ee6358"
         android:src="@drawable/add" />
 
-    <ImageView
-        android:id="@+id/back"
-        android:layout_width="50dp"
-        android:layout_height="80dp"
-        android:src="@drawable/arrow_left"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentBottom="true">
-    </ImageView>
-
-
 </RelativeLayout>

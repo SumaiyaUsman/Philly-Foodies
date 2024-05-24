@@ -26,5 +26,5 @@ public class item_truck extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-    });
-}}
+        });
+    }}
