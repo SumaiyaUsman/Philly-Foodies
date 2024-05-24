@@ -22,7 +22,10 @@
             android:name=".happystar_menu"
             android:exported="false" />
         <activity
-            android:name=".Happystar"
+            android:name=".wokworks_menu"
+            android:exported="false" />
+        <activity
+            android:name=".halaltaste_menu"
             android:exported="false" />
         <activity
             android:name=".item_truck"

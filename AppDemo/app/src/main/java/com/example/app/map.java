@@ -132,7 +132,7 @@ public class map extends AppCompatActivity implements OnMapReadyCallback {
                     startActivity(intent8);}
 
                 if(arg0 != null && arg0.getTitle().equals("Halal Taste")){
-                    Intent intent9 = new Intent(map.this, Register.class);
+                    Intent intent9 = new Intent(map.this, halaltaste_menu.class);
                     startActivity(intent9);}
 
                 if(arg0 != null && arg0.getTitle().equals("Fruit Smoothies")){
@@ -176,7 +176,7 @@ public class map extends AppCompatActivity implements OnMapReadyCallback {
                     startActivity(intent19);}
 
                 if(arg0 != null && arg0.getTitle().equals("Wokworks")){
-                    Intent intent20 = new Intent(map.this, Register.class);
+                    Intent intent20 = new Intent(map.this, wokworks_menu.class);
                     startActivity(intent20);}
 
                 if(arg0 != null && arg0.getTitle().equals("Los Girasoles")){
