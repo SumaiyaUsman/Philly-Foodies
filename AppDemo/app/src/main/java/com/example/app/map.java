@@ -104,7 +104,7 @@ public class map extends AppCompatActivity implements OnMapReadyCallback {
                     startActivity(intent1);}
 
                 if(arg0 != null && arg0.getTitle().equals("Happy Star")){
-                    Intent intent2 = new Intent(map.this, Register.class);
+                    Intent intent2 = new Intent(map.this, happystar_menu.class);
                     startActivity(intent2);}
 
                 if(arg0 != null && arg0.getTitle().equals("Pete's Little Lunch Box")){

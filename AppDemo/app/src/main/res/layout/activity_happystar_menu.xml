@@ -26,43 +26,95 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <EditText
-        android:id="@+id/editTextText"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:inputType="text"
-        android:text="Platters" />
+        android:layout_height="554dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="4dp">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="199dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Plain Lo Mein\nChicken Lo Mein\nBeef Lo Mein\nShrimp Lo Mein\nPepper Steak\nPlain Broccoli\nChicken Broccoli\nBeef Broccoli\nShrimp Broccoli\nSpicy Chicken\nSpicy Pork\nTeriyaki Chicken\nGeneral Tso Chicken\nPlain Fried Rice\nChicken Fried Rice\nBeef Fried Rice\nShrimp Fried Rice"
-            android:textSize="18sp" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="$6.00\n$7.00\n$8.00\n$8.00\n$8.00\n$6.00\n$7.00\n$8.00\n$8.00\n$8.00\n$8.00\n$8.00\n$8.00\n$5.00\n$6.00\n$7.00\n$7.00"
-            android:textSize="18sp" />
+            <EditText
+                android:id="@+id/editTextTextText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Breakfast and Lunch"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="4dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="199dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Plain Egg\nEgg and Cheese\nEgg and Cheese with Hashbrown\nBacon and Egg\nBacon Egg and Cheese\nBacon Egg and Cheese with Hashbrown\nSausage Egg and Cheese\nSausage Egg and Cheese with Hashbrown\nTurkey Bacon Egg and Cheese\nTurkey Bacon Egg and Cheese with Hashbrown\nPorkroll Egg and Cheese\nPorkroll Egg and Cheese with Hashbrown\nHot Sausage Egg and Cheese\nSteak Egg and Cheese\nGrill Cheese\nCheesesteak\nChicken Cheesesteak\nCheese Burger\nHot Sausage\nHashbrown\nFrench Fries\nChicken Wings(6)\nPopcorn Chicken"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="$3.75\n$4.00\n$5.00\n$4.75\n$5.00\n$6.00\n\n$5.00\n$6.00\n\n$5.00\n$6.00\n\n$5.00\n$6.00\n\n$6.00\n$7.00\n$3.75\n$6.00\n$6.00\n$5.00\n$4.00\n$1.50\n$3.00\n$5.00\n$6.00"
+                    android:textSize="18sp" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/editTextTextText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Platters"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="199dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Plain Lo Mein\nChicken Lo Mein\nBeef Lo Mein\nShrimp Lo Mein\nPepper Steak\nPlain Broccoli\nChicken Broccoli\nBeef Broccoli\nShrimp Broccoli\nSpicy Chicken\nSpicy Pork\nTeriyaki Chicken\nGeneral Tso Chicken\nPlain Fried Rice\nChicken Fried Rice\nBeef Fried Rice\nShrimp Fried Rice\nFish and French Fries\nFish and Plain Fried Rice\nFish and Chicken Fried Rice\nFish and Beef Fried Rice\nFish and Shrimp Fried Rice\nFried Chicken and French Fries\nFried Chicken and Plain Fried Rice\nFried Chicken and Chicken Fried Rice\nFried Chicken and Beef Fried Rice\nFried Chicken and Shrimp Fried Rice\nChicken Nuggets and French Fries\nPopcorn Chicken and French Fries\nCheese Burger and French Fries\nCheesesteak and French Fries "
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="$6.00\n$7.00\n$8.00\n$8.00\n$8.00\n$6.00\n$7.00\n$8.00\n$8.00\n$8.00\n$8.00\n$8.00\n$8.00\n$5.00\n$6.00\n$7.00\n$7.00\n$6.00\n$7.00\n$8.00\n$9.00\n$9.00\n$6.00\n$7.00\n$8.00\n\n$9.00\n$9.00\n\n$6.00\n$6.00\n$7.00\n$8.00"
+                    android:textSize="18sp" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
