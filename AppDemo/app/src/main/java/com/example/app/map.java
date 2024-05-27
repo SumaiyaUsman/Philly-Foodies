@@ -28,7 +28,7 @@ public class map extends AppCompatActivity implements OnMapReadyCallback {
     LatLng Nanus = new LatLng(39.95600, -75.18946);
     LatLng MEGA = new LatLng(39.95591, -75.18949);
     LatLng Yellow_Halal = new LatLng(39.95580, -75.18954);
-    LatLng Fruit_Smoothie = new LatLng(39.95580, -75.18954);
+    LatLng Fruit_Smoothie = new LatLng(39.95615, -75.19288);
     LatLng Divine_Flavored = new LatLng(39.95620, -75.19318);
     LatLng Richky = new LatLng(39.95539, -75.18963);
     LatLng Kami = new LatLng(39.95524, -75.18965);
