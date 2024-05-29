@@ -19,6 +19,9 @@ public class ResultLogin extends AppCompatActivity {
     Button MapButton;
     Button LogoutButton;
 
+
+    // Mod by Sumaiya Usman 05/29/2024
+    // Removed the MapButton and PostButton - I set the visibility to GONE.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultlogin);
@@ -36,6 +39,7 @@ public class ResultLogin extends AppCompatActivity {
                 finish();
             }
         });
+        textView.setVisibility(View.GONE);
         PostButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,6 +48,7 @@ public class ResultLogin extends AppCompatActivity {
                 finish();
             }
         });
+        PostButton.setVisibility(View.GONE);
         MapButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,6 +57,7 @@ public class ResultLogin extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        MapButton.setVisibility(View.GONE);
 
         LogoutButton.setOnClickListener(new View.OnClickListener() { // Set onClick listener for logout button
             @Override
@@ -74,8 +80,9 @@ public class ResultLogin extends AppCompatActivity {
             } else if (itemId == R.id.truck_icon) {
                 Intent intent = new Intent(ResultLogin.this, item_truck.class);
                 startActivity(intent);
+                // Mod by Sumaiya Usman, 05/29/2024
             } else if (itemId == R.id.posts_icon) {
-                Intent intent = new Intent(ResultLogin.this, PostActivity.class);
+                Intent intent = new Intent(ResultLogin.this, PostMain.class);
                 startActivity(intent);
             } else if (itemId == R.id.map_icon) {
                 Intent intent = new Intent(ResultLogin.this, map.class);
