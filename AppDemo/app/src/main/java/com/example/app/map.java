@@ -57,7 +57,7 @@ public class map extends AppCompatActivity implements OnMapReadyCallback {
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.id_map);
         mapFragment.getMapAsync(this);
-        getSupportActionBar().setTitle("Philly FoodTrucks");
+        getSupportActionBar().setTitle("FoodTrucks Location");
 
         locationArrayList = new ArrayList<>();
 

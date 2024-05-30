@@ -52,8 +52,7 @@
             android:background="@null"
             android:src="@drawable/smoothie"
             android:layout_gravity="center"
-            android:layout_weight="4"
-            />
+            android:layout_weight="4" />
 
     </LinearLayout>
 

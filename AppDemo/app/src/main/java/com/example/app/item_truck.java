@@ -1,5 +1,6 @@
 package com.example.app;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -20,6 +21,7 @@ public class item_truck extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_truck);
+
 
         happyStar = findViewById(R.id.happystar);
 

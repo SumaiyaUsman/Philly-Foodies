@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -56,6 +57,7 @@ public class TrucksFragment extends Fragment {
         return rootView;
 
     }
+
 
     private void addSampleTruckData() {
         truckList.add(new Truck("Happy Star", "33RD And Arch St Philadelphia, PA 19104, Powelton Village, University City", "Chinese"));
