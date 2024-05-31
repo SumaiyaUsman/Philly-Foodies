@@ -39,6 +39,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="353dp"
+                    android:src="@drawable/wokworks" />
+
                 <EditText
                     android:id="@+id/editTextWW"
                     android:layout_width="match_parent"

@@ -42,7 +42,7 @@ public class ResultLogin extends AppCompatActivity {
                 Intent intent = new Intent(ResultLogin.this, ResultLogin.class);
                 startActivity(intent);
             } else if (itemId == R.id.truck_icon) {
-                Intent intent = new Intent(ResultLogin.this, Mainfoodtruck.class);
+                Intent intent = new Intent(ResultLogin.this, item_truck.class);
                 startActivity(intent);
                 // Mod by Sumaiya Usman, 05/29/2024
             } else if (itemId == R.id.posts_icon) {
