@@ -40,7 +40,7 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/editTextTextTextText"
+                    android:id="@+id/editTextWW"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:ems="10"
@@ -56,7 +56,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/textView1"
                         android:layout_width="199dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -64,7 +64,7 @@
                         android:textSize="18sp" />
 
                     <TextView
-                        android:id="@+id/textView4"
+                        android:id="@+id/textView2"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -72,7 +72,7 @@
                         android:textSize="18sp" />
 
                     <ProgressBar
-                        android:id="@+id/progressBar"
+                        android:id="@+id/progressBarWW"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:visibility="gone" />

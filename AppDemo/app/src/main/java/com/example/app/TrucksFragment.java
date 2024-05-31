@@ -19,8 +19,9 @@ import java.util.stream.Collectors;
 
 public class TrucksFragment extends Fragment {
 
-    private List<Truck> truckList;
+    private ArrayList<Truck> truckList;
     private TruckAdapter truckAdapter;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -40,7 +41,7 @@ public class TrucksFragment extends Fragment {
         recyclerView.setAdapter(truckAdapter);
 
         // Initialize Spinner
-        Spinner cuisineSpinner = rootView.findViewById(R.id.cuisineSpinner);
+        Spinner cuisineSpinner = rootView.findViewById(R.id.cuisine_spinner);
         cuisineSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

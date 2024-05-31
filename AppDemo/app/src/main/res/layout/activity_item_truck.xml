@@ -28,7 +28,7 @@
                 android:layout_marginStart="8dp"/>
 
             <Spinner
-                android:id="@+id/cuisineSpinner"
+                android:id="@+id/cuisine_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:entries="@array/cuisines_array"

@@ -30,10 +30,13 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
-
+    val room_version = "2.6.1"
     implementation ("androidx.fragment:fragment:1.6.2")
     implementation ("androidx.recyclerview:recyclerview:1.3.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -46,8 +49,12 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore:24.11.1")
     implementation("androidx.activity:activity:1.8.0")
     implementation("com.github.bumptech.glide:glide:4.15.1")
+    implementation("androidx.navigation:navigation-fragment:2.6.0")
+    implementation("androidx.navigation:navigation-ui:2.6.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
 }
