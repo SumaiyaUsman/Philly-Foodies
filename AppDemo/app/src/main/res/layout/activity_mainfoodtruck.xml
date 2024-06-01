@@ -8,7 +8,7 @@
     tools:context=".Mainfoodtruck"
     android:background="@color/beige">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <!--<com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true">
@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize" />
 
-    </com.google.android.material.appbar.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>-->
 
     <include layout="@layout/content_mainfoodtruck" />
 
@@ -30,6 +30,7 @@
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
         app:srcCompat="@android:drawable/ic_input_add"
-        android:contentDescription="@string/fab_content_description"/>
+        android:contentDescription="@string/fab_content_description"
+        app:backgroundTint="#ee6358"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

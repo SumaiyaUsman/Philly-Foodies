@@ -29,6 +29,11 @@ public class item_truck extends AppCompatActivity {
 
         halalTaste = findViewById(R.id.halaltaste);
 
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
+
         //Author: Sumaiya Usman 5/24/24
         happyStar.setOnClickListener(new View.OnClickListener() {
             @Override

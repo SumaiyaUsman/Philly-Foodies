@@ -21,7 +21,7 @@
         <activity
             android:name=".Mainfoodtruck"
             android:exported="false"
-            android:theme="@style/Theme.Material3.Light" />
+            android:theme="@style/Theme.Material3.Light.NoActionBar" />
         <activity
             android:name=".happystar_menu"
             android:exported="false" />
@@ -56,16 +56,16 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".ResultLogin"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".PostMain"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".PostActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".map"
             android:exported="true"
@@ -77,19 +77,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Truck"
-            android:exported="true" />
-        <activity
-            android:name=".TruckAdapter"
-            android:exported="true" />
-        <activity
-            android:name=".TrucksFragment"
-            android:exported="true" />
-        <activity android:name=".CreateTruck"/>
-        <activity android:name=".Foodtruck"/>
-        <activity android:name=".FoodTruckAdapter"/>
-        <activity android:name=".AppDatabase"/>
-        <activity android:name=".TruckDao"/>
+            android:name=".CreateTruck"
+            android:exported="false"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

@@ -9,9 +9,9 @@ import java.util.List;
 @Dao
 public interface TruckDao {
     @Query("SELECT * FROM foodtruck")
-    List<Foodtruck> getAllFoodTrucks();
+    List<com.example.app.Foodtruck> getAllFoodTrucks();
     @Insert
-    void insertAll(Foodtruck... foodtrucks);
+    void insertAll(com.example.app.Foodtruck... foodtrucks);
     @Query("SELECT * FROM foodtruck WHERE truck_cuisine = :cuisine")
-    List<Foodtruck> getFoodTrucksByCuisine(String cuisine);
+    List<com.example.app.Foodtruck> getFoodTrucksByCuisine(String cuisine);
 }

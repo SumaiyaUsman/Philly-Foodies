@@ -35,9 +35,9 @@ public class CreateTruck extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: foodTruckName: " + foodTruckName.getText().toString());
-                Foodtruck foodtruck = new Foodtruck(foodTruckName.getText().toString(), location.getText().toString(), cuisine.getText().toString());
+                com.example.app.Foodtruck foodtruck = new com.example.app.Foodtruck(foodTruckName.getText().toString(), location.getText().toString(), cuisine.getText().toString());
                 db.truckDao().insertAll(foodtruck);
-                startActivity(new Intent(CreateTruck.this, MainActivity.class));
+                startActivity(new Intent(CreateTruck.this, com.example.app.MainActivity.class));
             }
         });
     }

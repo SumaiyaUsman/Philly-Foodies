@@ -46,8 +46,8 @@ public class Mainfoodtruck extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainfoodtruck);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
 
         recyclerView = findViewById(R.id.recycler_view);
 
@@ -115,7 +115,7 @@ public class Mainfoodtruck extends AppCompatActivity {
         Foodtruck truck26 = new Foodtruck("Girale's", "Lancaster Walk", "Mexican");
         Foodtruck truck27 = new Foodtruck("Halal Taste", "12 S 33rd St, Philadelphia, PA 19104, University City", "Halal");
 
-        // Insert sample food trucks into the database
+        // Insert food trucks into the database
         db.truckDao().insertAll(truck1, truck2, truck3, truck4, truck5, truck6, truck7, truck8, truck9, truck10, truck11, truck12, truck13, truck14, truck15, truck16, truck17, truck18, truck19, truck20, truck21, truck22, truck23, truck24, truck25, truck26, truck27);
     }
     private void filterTrucksByCuisine(String cuisine) {
@@ -129,6 +129,6 @@ public class Mainfoodtruck extends AppCompatActivity {
                     .collect(Collectors.toList());
         }
 
-        adapter.updateList(filteredList); // Assuming your adapter has an updateList method
+        adapter.updateList(filteredList); //updateList method
     }
 }
