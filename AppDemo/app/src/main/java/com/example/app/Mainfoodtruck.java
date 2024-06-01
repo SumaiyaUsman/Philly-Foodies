@@ -35,6 +35,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+//From Youtube 'DJ Malone - Android RecyclerView + Room Database Tutorial' 5/30/24
+//Mod by Sumaiya Usman 5/30/24
 public class Mainfoodtruck extends AppCompatActivity {
 
     RecyclerView recyclerView;
@@ -46,8 +48,6 @@ public class Mainfoodtruck extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainfoodtruck);
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
 
         recyclerView = findViewById(R.id.recycler_view);
 

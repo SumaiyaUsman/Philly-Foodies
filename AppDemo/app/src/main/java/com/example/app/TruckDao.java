@@ -6,6 +6,8 @@ import androidx.room.Query;
 
 import java.util.List;
 
+//From Youtube 'DJ Malone - Android RecyclerView + Room Database Tutorial' 5/30/24
+//Mod by Sumaiya Usman 5/30/24
 @Dao
 public interface TruckDao {
     @Query("SELECT * FROM foodtruck")

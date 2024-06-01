@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+//From Youtube 'DJ Malone - Android RecyclerView + Room Database Tutorial' 5/30/24
+//Mod by Sumaiya Usman 5/30/24
 class FoodTruckAdapter extends RecyclerView.Adapter<FoodTruckAdapter.ViewHolder> {
     List<Foodtruck> foodtrucks;
 

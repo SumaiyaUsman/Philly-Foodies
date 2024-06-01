@@ -11,6 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+//From Youtube 'DJ Malone - Android RecyclerView + Room Database Tutorial' 5/30/24
+//Mod by Sumaiya Usman 5/30/24
 public class CreateTruck extends AppCompatActivity {
 
     private static final String TAG = "CreateTruck";

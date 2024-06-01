@@ -6,6 +6,9 @@
     android:padding="24dp"
     android:background="@color/beige">
 
+    <!--From Youtube 'DJ Malone - Android RecyclerView + Room Database Tutorial' 5/30/24-->
+    <!--Mod by Sumaiya Usman 5/30/24-->
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

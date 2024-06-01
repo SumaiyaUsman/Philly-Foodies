@@ -4,6 +4,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+//From Youtube 'DJ Malone - Android RecyclerView + Room Database Tutorial' 5/30/24
+//Mod by Sumaiya Usman 5/30/24
 @Entity
 public class Foodtruck {
     public Foodtruck(String foodTruckName, String truckLocation, String truckCuisine) {

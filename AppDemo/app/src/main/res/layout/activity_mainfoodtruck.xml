@@ -8,17 +8,8 @@
     tools:context=".Mainfoodtruck"
     android:background="@color/beige">
 
-    <!--<com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
-
-    </com.google.android.material.appbar.AppBarLayout>-->
+    <!--From Youtube 'DJ Malone - Android RecyclerView + Room Database Tutorial' 5/30/24-->
+    <!--Mod by Sumaiya Usman 5/30/24-->
 
     <include layout="@layout/content_mainfoodtruck" />
 
