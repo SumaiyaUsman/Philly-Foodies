@@ -1,5 +1,8 @@
 package com.example.app;
 
+import android.content.Context;
+import android.content.Intent;
+import android.view.ContentInfo;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +18,10 @@ import java.util.List;
 //Mod by Sumaiya Usman 5/30/24
 class FoodTruckAdapter extends RecyclerView.Adapter<FoodTruckAdapter.ViewHolder> {
     List<Foodtruck> foodtrucks;
+    Context context;
 
-    public FoodTruckAdapter(List<Foodtruck> foodtrucks) {
+    public FoodTruckAdapter(Context context ,List<Foodtruck> foodtrucks) {
+        this.context = context;
         this.foodtrucks = foodtrucks;
     }
 
@@ -29,9 +34,29 @@ class FoodTruckAdapter extends RecyclerView.Adapter<FoodTruckAdapter.ViewHolder>
 
     @Override
     public void onBindViewHolder(@NonNull FoodTruckAdapter.ViewHolder holder, int position) {
+        Foodtruck foodtruck = foodtrucks.get(position);
         holder.truckName.setText(foodtrucks.get(position).getFoodTruckName());
         holder.truckLocation.setText(foodtrucks.get(position).getTruckLocation());
         holder.truckCuisine.setText(foodtrucks.get(position).getTruckCuisine());
+
+        //Author: Sumaiya Usman 6/1/24
+        // Modified by CHATGPT 6/1/24
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (foodtruck.getFoodTruckName()) {
+                    case "Happy Star":
+                        context.startActivity(new Intent(context, happystar_menu.class));
+                        break;
+                    case "WokWorks":
+                        context.startActivity(new Intent(context, wokworks_menu.class));
+                        break;
+                    case "Halal Taste":
+                        context.startActivity(new Intent(context, halaltaste_menu.class));
+                        break;
+                }
+            }
+        });
     }
 
     @Override

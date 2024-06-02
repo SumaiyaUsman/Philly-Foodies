@@ -54,14 +54,13 @@ public class Mainfoodtruck extends AppCompatActivity {
         AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "production").allowMainThreadQueries().build();
 
         if (db.truckDao().getAllFoodTrucks().isEmpty()) {
-            // If the database is empty, initialize and insert food trucks
             initializeFoodTrucks(db);
         }
 
         foodtrucks = db.truckDao().getAllFoodTrucks();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new FoodTruckAdapter(foodtrucks);
+        adapter = new FoodTruckAdapter(this, foodtrucks);
         recyclerView.setAdapter(adapter);
 
         fab = findViewById(R.id.fab);
