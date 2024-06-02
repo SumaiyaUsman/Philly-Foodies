@@ -22,6 +22,7 @@
         android:layout_marginBottom="16dp"
         app:srcCompat="@android:drawable/ic_input_add"
         android:contentDescription="@string/fab_content_description"
-        app:backgroundTint="#ee6358"/>
+        app:backgroundTint="#ee6358"
+        app:tint="@color/white"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
