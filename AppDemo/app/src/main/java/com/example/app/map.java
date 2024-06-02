@@ -57,7 +57,7 @@ public class map extends AppCompatActivity implements OnMapReadyCallback {
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.id_map);
         mapFragment.getMapAsync(this);
-        getSupportActionBar().setTitle("FoodTrucks Location");
+        getSupportActionBar().setTitle("Food Trucks Location");
 
         locationArrayList = new ArrayList<>();
 
@@ -214,33 +214,33 @@ public class map extends AppCompatActivity implements OnMapReadyCallback {
             }
         });
         gMap.addMarker(new MarkerOptions().position(locationArrayList.get(0)).title("Drexel").snippet("Click here for more information."));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(1)).title("Happy Star"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(2)).title("Pete's Little Lunch Box"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(3)).title("Aladdin Shawarma"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(4)).title("Happy Sunshine Lunch Truck"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(5)).title("Judy's Kitchen"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(6)).title("Nanu's Nashville Hot Chicken"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(7)).title("MEGA Food Truck"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(8)).title("Halal Taste"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(9)).title("Fruit Smoothies"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(10)).title("Divine Flavored Catering"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(11)).title("Richky Truck"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(12)).title("Kami Korean Food"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(13)).title("Famous New York Gyro"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(14)).title("Philly Halal Gyro"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(15)).title("Horne's Famous Food"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(16)).title("Jimmy Truck"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(17)).title("Lennox Got Lunch"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(18)).title("Ricky's Food Truck"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(19)).title("Kim's Dragon Asian Food"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(20)).title("H & J"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(21)).title("Friendly Tasty Dishes Halal Food"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(22)).title("Sue's Lunch Truck"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(23)).title("Mai's Food Truck"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(24)).title("Cucina Zapata"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(25)).title("Mommy Telly's Famous BBQ"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(26)).title("Wokworks"));
-        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(27)).title("Los Girasoles"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(1)).title("Happy Star").snippet("Chinese Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(2)).title("Pete's Little Lunch Box").snippet("American Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(3)).title("Aladdin Shawarma").snippet("Halal Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(4)).title("Happy Sunshine Lunch Truck").snippet("American Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(5)).title("Judy's Kitchen").snippet("American Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(6)).title("Nanu's Nashville Hot Chicken").snippet("Halal Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(7)).title("MEGA Food Truck").snippet("American Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(8)).title("Halal Taste").snippet("Halal Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(9)).title("Fruit Smoothies").snippet("Drinks"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(10)).title("Divine Flavored Catering").snippet("African Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(11)).title("Richky Truck").snippet("American Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(12)).title("Kami Korean Food").snippet("Korean Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(13)).title("Famous New York Gyro").snippet("Halal Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(14)).title("Philly Halal Gyro").snippet("Halal Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(15)).title("Horne's Famous Food").snippet("American Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(16)).title("Jimmy Truck").snippet("American Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(17)).title("Lennox Got Lunch").snippet("American Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(18)).title("Ricky's Food Truck").snippet("American Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(19)).title("Kim's Dragon Asian Food").snippet("Chinese Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(20)).title("H & J").snippet("American Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(21)).title("Friendly Tasty Dishes Halal Food").snippet("Halal Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(22)).title("Sue's Lunch Truck").snippet("American Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(23)).title("Mai's Food Truck").snippet("Chinese Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(24)).title("Cucina Zapata").snippet("Mexican Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(25)).title("Mommy Telly's Famous BBQ").snippet("Filipino Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(26)).title("Wokworks").snippet("Chinese Cuisine"));
+        gMap.addMarker(new MarkerOptions().position(locationArrayList.get(27)).title("Los Girasoles").snippet("Mexican Cuisine"));
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(drexel,17));
     }
 
