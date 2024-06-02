@@ -137,7 +137,7 @@ public class PostActivity extends AppCompatActivity {
     }
 
     //From Blog post(loasd.tistory, zynar.tistory, aries574.tistory) 5/17/24
-    //Mod by Chaeyoon Song 5/17/24
+    //Mod by Chaeyoon Song 6/1/24
     private void uploadImages(String postId, String title, String contents) {
         if (uri.isEmpty()) {
             savePostData(postId, title, contents, null);
@@ -145,10 +145,10 @@ public class PostActivity extends AppCompatActivity {
         }
 
         ArrayList<String> imageUrls = new ArrayList<>();
-        for (int i = 0; i < uri.size(); i++) {
-            Uri imageUri = uri.get(i);
+        int[] uploadCounter = {0};
+
+        for (Uri imageUri : uri) {
             StorageReference fileRef = mStorageRef.child("posts/" + postId + "/" + imageUri.getLastPathSegment());
-            int finalI = i;
             fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -156,7 +156,8 @@ public class PostActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Uri downloadUri) {
                             imageUrls.add(downloadUri.toString());
-                            if (finalI == uri.size() - 1) {
+                            uploadCounter[0]++; // Increment the counter
+                            if (uploadCounter[0] == uri.size()) {
                                 savePostData(postId, title, contents, imageUrls);
                             }
                         }
