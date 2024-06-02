@@ -31,6 +31,10 @@ public class CreateTruck extends AppCompatActivity {
         cuisine = findViewById(R.id.truck_cuisine);
         button = findViewById(R.id.add_truck_button);
 
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
         AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "production").allowMainThreadQueries().build();
 
         button.setOnClickListener(new View.OnClickListener() {
