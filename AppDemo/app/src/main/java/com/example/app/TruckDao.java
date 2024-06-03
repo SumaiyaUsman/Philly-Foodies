@@ -3,6 +3,7 @@ package com.example.app;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Delete;
 
 import java.util.List;
 
@@ -16,4 +17,7 @@ public interface TruckDao {
     void insertAll(com.example.app.Foodtruck... foodtrucks);
     @Query("SELECT * FROM foodtruck WHERE truck_cuisine = :cuisine")
     List<com.example.app.Foodtruck> getFoodTrucksByCuisine(String cuisine);
+
+    @Delete
+    void deleteFoodTruck(com.example.app.Foodtruck foodtruck);
 }

@@ -2,47 +2,30 @@ package com.example.app;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.example.app.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.example.app.databinding.ActivityMainBinding;
-
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Spinner;
 
-import androidx.appcompat.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
-import androidx.room.RoomDatabase;
 
-import java.util.ArrayList;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
-//From Youtube 'DJ Malone - Android RecyclerView + Room Database Tutorial' 5/30/24
-//Mod by Sumaiya Usman 5/30/24
-public class Mainfoodtruck extends AppCompatActivity {
+// From Youtube 'DJ Malone - Android RecyclerView + Room Database Tutorial' 5/30/24
+// Mod by Sumaiya Usman 5/30/24
+public class Mainfoodtruck extends AppCompatActivity implements FoodTruckAdapter.OnFoodTruckActionListener {
 
     RecyclerView recyclerView;
     FoodTruckAdapter adapter;
     FloatingActionButton fab;
     List<Foodtruck> foodtrucks;
+    AppDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +33,7 @@ public class Mainfoodtruck extends AppCompatActivity {
         setContentView(R.layout.activity_mainfoodtruck);
 
         recyclerView = findViewById(R.id.recycler_view);
-
-        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "production").allowMainThreadQueries().build();
+        db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "production").allowMainThreadQueries().build();
 
         if (db.truckDao().getAllFoodTrucks().isEmpty()) {
             initializeFoodTrucks(db);
@@ -60,16 +42,11 @@ public class Mainfoodtruck extends AppCompatActivity {
         foodtrucks = db.truckDao().getAllFoodTrucks();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new FoodTruckAdapter(this, foodtrucks);
+        adapter = new FoodTruckAdapter(this, foodtrucks, this);
         recyclerView.setAdapter(adapter);
 
         fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Mainfoodtruck.this, CreateTruck.class));
-            }
-        });
+        fab.setOnClickListener(v -> startActivity(new Intent(Mainfoodtruck.this, CreateTruck.class)));
 
         Spinner cuisineSpinner = findViewById(R.id.cuisineSpinner);
         cuisineSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -84,7 +61,31 @@ public class Mainfoodtruck extends AppCompatActivity {
                 // Do nothing
             }
         });
+
+        // Author: Sumaiya Usman, 06/2/2024
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.home_icon) {
+                Intent intent = new Intent(Mainfoodtruck.this, ResultLogin.class);
+                startActivity(intent);
+            } else if (itemId == R.id.truck_icon) {
+                Intent intent = new Intent(Mainfoodtruck.this, Mainfoodtruck.class);
+                startActivity(intent);
+            } else if (itemId == R.id.posts_icon) {
+                Intent intent = new Intent(Mainfoodtruck.this, PostMain.class);
+                startActivity(intent);
+            } else if (itemId == R.id.map_icon) {
+                Intent intent = new Intent(Mainfoodtruck.this, map.class);
+                startActivity(intent);
+                return true;
+            }
+
+            return true;
+        });
     }
+
     private void initializeFoodTrucks(AppDatabase db) {
         Foodtruck truck1 = new Foodtruck("Happy Star", "33RD And Arch St Philadelphia, PA 19104, Powelton Village, University City", "Chinese");
         Foodtruck truck2 = new Foodtruck("Pete's Lunch Box", "11 N 33rd St Philadelphia, PA 19104, Powelton Village, University City", "American");
@@ -99,8 +100,8 @@ public class Mainfoodtruck extends AppCompatActivity {
         Foodtruck truck11 = new Foodtruck("Richky", "2-4 N 32nd St. Philadelphia, PA 19104. Powelton Village, University City", "American");
         Foodtruck truck12 = new Foodtruck("Kami", "3233 Arch St Philadelphia, PA 19104 University City", "Korean");
         Foodtruck truck13 = new Foodtruck("NY Gyro", "3300 Market St, Philadelphia, PA 19104, University City", "Halal");
-        Foodtruck truck14 = new Foodtruck("Philly Gyro", "3300 Market St, Philadelphia, PA 19104, University City", "Halal");
-        Foodtruck truck15 = new Foodtruck("Hornes", "3132 Market St, Philadelphia, PA 19104, University City", "American");
+        Foodtruck truck14 = new Foodtruck("Joy Tsin Lau", "1331 Race St Philadelphia, PA 19107, Chinatown", "Chinese");
+        Foodtruck truck15 = new Foodtruck("Salt Bae", "31st & Ludlow St Philadelphia, PA 19104, University City", "American");
         Foodtruck truck16 = new Foodtruck("Jimmy", "3101-3141 Ludlow St, Philadelphia, PA 19104, University City", "American");
         Foodtruck truck17 = new Foodtruck("Lennox", "3140 Ludlow St Philadelphia, PA 19104, University City", "American");
         Foodtruck truck18 = new Foodtruck("Ricky's", "2-4 N 32nd St Philadelphia, PA 19104, Powelton Village, University City", "American");
@@ -117,6 +118,7 @@ public class Mainfoodtruck extends AppCompatActivity {
         // Insert food trucks into the database
         db.truckDao().insertAll(truck1, truck2, truck3, truck4, truck5, truck6, truck7, truck8, truck9, truck10, truck11, truck12, truck13, truck14, truck15, truck16, truck17, truck18, truck19, truck20, truck21, truck22, truck23, truck24, truck25, truck26, truck27);
     }
+
     private void filterTrucksByCuisine(String cuisine) {
         List<Foodtruck> filteredList;
 
@@ -128,6 +130,17 @@ public class Mainfoodtruck extends AppCompatActivity {
                     .collect(Collectors.toList());
         }
 
-        adapter.updateList(filteredList); //updateList method
+        adapter.updateList(filteredList);
+    }
+
+    @Override
+    public void onFoodTruckDelete(int position) {
+        removeFoodTruckFromDatabase(position);
+    }
+
+    public void removeFoodTruckFromDatabase(int position) {
+        db.truckDao().deleteFoodTruck(foodtrucks.get(position));
+        foodtrucks.remove(position);
+        adapter.notifyItemRemoved(position);
     }
 }

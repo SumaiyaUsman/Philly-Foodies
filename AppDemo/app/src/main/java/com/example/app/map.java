@@ -13,6 +13,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
@@ -89,6 +90,29 @@ public class map extends AppCompatActivity implements OnMapReadyCallback {
         locationArrayList.add(Tellys);
         locationArrayList.add(WokWorks);
         locationArrayList.add(Girales);
+
+        // Author: Sumaiya Usman, 06/2/2024
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.home_icon) {
+                Intent intent = new Intent(map.this, ResultLogin.class);
+                startActivity(intent);
+            } else if (itemId == R.id.truck_icon) {
+                Intent intent = new Intent(map.this, Mainfoodtruck.class);
+                startActivity(intent);
+            } else if (itemId == R.id.posts_icon) {
+                Intent intent = new Intent(map.this, PostMain.class);
+                startActivity(intent);
+            } else if (itemId == R.id.map_icon) {
+                Intent intent = new Intent(map.this, map.class);
+                startActivity(intent);
+                return true;
+            }
+
+            return true;
+        });
     }
 
     @Override

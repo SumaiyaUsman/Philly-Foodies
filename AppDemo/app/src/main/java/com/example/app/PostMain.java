@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -46,6 +47,28 @@ public class PostMain extends AppCompatActivity implements View.OnClickListener 
         if (actionBar != null) {
             actionBar.hide();
         }
+        // Author: Sumaiya Usman, 06/2/2024
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.home_icon) {
+                Intent intent = new Intent(PostMain.this, ResultLogin.class);
+                startActivity(intent);
+            } else if (itemId == R.id.truck_icon) {
+                Intent intent = new Intent(PostMain.this, Mainfoodtruck.class);
+                startActivity(intent);
+            } else if (itemId == R.id.posts_icon) {
+                Intent intent = new Intent(PostMain.this, PostMain.class);
+                startActivity(intent);
+            } else if (itemId == R.id.map_icon) {
+                Intent intent = new Intent(PostMain.this, map.class);
+                startActivity(intent);
+                return true;
+            }
+
+            return true;
+        });
     }
 
     //From Youtube 'Roon Sky' 4/20/24

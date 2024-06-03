@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
@@ -89,6 +90,28 @@ public class PostActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
+        // Author: Sumaiya Usman, 06/2/2024
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.home_icon) {
+                Intent intent = new Intent(PostActivity.this, ResultLogin.class);
+                startActivity(intent);
+            } else if (itemId == R.id.truck_icon) {
+                Intent intent = new Intent(PostActivity.this, Mainfoodtruck.class);
+                startActivity(intent);
+            } else if (itemId == R.id.posts_icon) {
+                Intent intent = new Intent(PostActivity.this, PostMain.class);
+                startActivity(intent);
+            } else if (itemId == R.id.map_icon) {
+                Intent intent = new Intent(PostActivity.this, map.class);
+                startActivity(intent);
+                return true;
+            }
+
+            return true;
+        });
     }
 
     //Author: Chaeyoon Song 5/23/24
