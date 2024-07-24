@@ -48,20 +48,6 @@ public class Mainfoodtruck extends AppCompatActivity implements FoodTruckAdapter
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(v -> startActivity(new Intent(Mainfoodtruck.this, CreateTruck.class)));
 
-        Spinner cuisineSpinner = findViewById(R.id.cuisineSpinner);
-        cuisineSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedCuisine = (String) parent.getItemAtPosition(position);
-                filterTrucksByCuisine(selectedCuisine);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // Do nothing
-            }
-        });
-
         // Author: Sumaiya Usman, 06/2/2024
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -84,6 +70,37 @@ public class Mainfoodtruck extends AppCompatActivity implements FoodTruckAdapter
 
             return true;
         });
+        // Mod by Sumaiya Usman 5/30/24
+        Spinner cuisineSpinner = findViewById(R.id.cuisineSpinner); // initialize Spinner to select cuisine type
+        // set OnItemSelectedListener on Spinner to handle item selection
+        cuisineSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedCuisine = (String) parent.getItemAtPosition(position); // get selected cuisine type from Spinner
+                filterTrucksByCuisine(selectedCuisine); // call this method to filter food trucks based on selected cuisine
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // do nothing when no item is selected
+            }
+        });
+    }
+    // Mod by Sumaiya Usman 5/30/24
+    // filters list of food trucks based on selected cuisine type
+    private void filterTrucksByCuisine(String cuisine) {
+        List<Foodtruck> filteredList;
+        // if "All" is selected, do not filter and use full list of food trucks
+        if (cuisine.equals("All")) {
+            filteredList = foodtrucks;
+        }
+        // otherwise, filter food trucks list to include only those matching the selected cuisine
+        else {
+            filteredList = foodtrucks.stream()
+                    .filter(truck -> truck.getTruckCuisine().equalsIgnoreCase(cuisine))
+                    .collect(Collectors.toList());
+        }
+        // update adapter with the filtered list to refresh the RecyclerView
+        adapter.updateList(filteredList);
     }
 
     private void initializeFoodTrucks(AppDatabase db) {
@@ -117,20 +134,6 @@ public class Mainfoodtruck extends AppCompatActivity implements FoodTruckAdapter
 
         // Insert food trucks into the database
         db.truckDao().insertAll(truck1, truck2, truck3, truck4, truck5, truck6, truck7, truck8, truck9, truck10, truck11, truck12, truck13, truck14, truck15, truck16, truck17, truck18, truck19, truck20, truck21, truck22, truck23, truck24, truck25, truck26, truck27);
-    }
-
-    private void filterTrucksByCuisine(String cuisine) {
-        List<Foodtruck> filteredList;
-
-        if (cuisine.equals("All")) {
-            filteredList = foodtrucks;
-        } else {
-            filteredList = foodtrucks.stream()
-                    .filter(truck -> truck.getTruckCuisine().equalsIgnoreCase(cuisine))
-                    .collect(Collectors.toList());
-        }
-
-        adapter.updateList(filteredList);
     }
 
     @Override
