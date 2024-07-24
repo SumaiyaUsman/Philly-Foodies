@@ -6,7 +6,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="100dp"
-    android:background="#ecf0d7"
+    android:background="@color/beige"
     >
 
     <TextView
@@ -52,8 +52,7 @@
             android:background="@null"
             android:src="@drawable/smoothie"
             android:layout_gravity="center"
-            android:layout_weight="4"
-            />
+            android:layout_weight="4" />
 
     </LinearLayout>
 

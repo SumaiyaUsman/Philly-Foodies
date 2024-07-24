@@ -1,49 +1,55 @@
 package com.example.app;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    FirebaseAuth auth;
-    Button button;
-    TextView textView;
-    FirebaseUser user;
+    BottomNavigationView bottomNavigationView;
+
+    TrucksFragment trucksFragment;
+    MapFragment mapFragment;
+    HomeFragment homeFragment;
+    PostsFragment postsFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        auth = FirebaseAuth.getInstance();
-        button = findViewById(R.id.logout);
-        textView = findViewById(R.id.user_details);
-        user = auth.getCurrentUser();
-        if (user == null) {
-            Intent intent = new Intent(getApplicationContext(), Login.class);
-            startActivity(intent);
-            finish();
-        }
-        else {
-            textView.setText(user.getEmail());
-        }
+        // Initialize fragments
+        trucksFragment = new TrucksFragment();
+        mapFragment = new MapFragment();
+        homeFragment = new HomeFragment();
+        postsFragment = new PostsFragment();
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), Login.class);
-                startActivity(intent);
-                finish();
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            Fragment selectedFragment = null;
+
+            if (item.getItemId() == R.id.truck_icon) {
+                selectedFragment = trucksFragment;
+            } else if (item.getItemId() == R.id.map_icon) {
+                selectedFragment = mapFragment;
+            } else if (item.getItemId() == R.id.home_icon) {
+                selectedFragment = homeFragment;
+            } else if (item.getItemId() == R.id.posts_icon) {
+                selectedFragment = postsFragment;
             }
+
+            if (selectedFragment != null) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.flFragment, selectedFragment)
+                        .commit();
+                return true;
+            }
+
+            return false;
         });
+
+        bottomNavigationView.setSelectedItemId(R.id.truck_icon);
     }
 }

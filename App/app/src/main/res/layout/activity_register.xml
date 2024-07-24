@@ -39,8 +39,8 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/mobile"
-            android:hint="@string/mobile_number"
+            android:id="@+id/username"
+            android:hint="@string/user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20sp"
