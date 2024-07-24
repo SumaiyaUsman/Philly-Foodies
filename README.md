@@ -9,7 +9,6 @@
     - [Trucks Button](#trucks-button)
     - [Map Button](#map-button)
     - [Post Button](#post-button)
-3. [Screenshots and Examples](#screenshots-and-examples)
 
 ## How to Start the System
 
@@ -35,6 +34,41 @@
 2. **Viewing Food Truck Menu**:
     - Click on the name of a food truck from the list.
     - The menu for the selected food truck will be shown.
+
+3. **Adding a Food Truck**:
+    - Tap the **Add** button ("+" icon).
+    - Fill in the details for the new food truck and save.
+
+### Map Button
+
+1. **Viewing Food Truck Locations**:
+    - Tap the **Map** button on the navigation bar.
+    - Food truck pins will be displayed on the map.
+
+2. **Viewing Food Truck Menu from Map**:
+    - Click on a food truck pin.
+    - The name of the food truck will appear; tap on it to view the menu.
+
+3. **Navigating to Food Truck**:
+    - Click the small map icon in the lower right corner.
+    - This will direct you to Google Maps for navigation to the selected food truck.
+
+### Post Button
+
+1. **Posting (For Subscribed Users Only)**:
+    - Tap the **Post** button on the navigation bar.
+    - Unsubscribed users will be prompted to log in for uploading a post.
+
+2. **Creating a Post**:
+    - Tap the pencil icon.
+    - Enter a title and content for your post.
+    - If you try to save without filling in both fields, you will see a message: "Title and contents must be filled"
+    - Click **SAVE** button, when post is ready.
+
+3. **Resetting Post's Images**:
+    - Tap the **RESET** button to clear any images attached to the post.
+---
+We hope this user guide helps you make the most of the Philly Foodies app. Enjoy finding and exploring delicious food trucks in your area! If you encounter any issues or have any questions, please reach out to us.
 
 # Philly Foodies System Manual
 
@@ -118,104 +152,3 @@ If you encounter any issues that are not documented here or have additional ques
 * Sumaiya Usman - su93@drexel.edu
 * Chaeyoon Song - cs3886@drexel.edu
 * Andersen Hu - ah3779@drexel.edu
-
-3. **Adding a Food Truck**:
-    - Tap the **Add** button ("+" icon).
-    - Fill in the details for the new food truck and save.
-
-### Map Button
-
-1. **Viewing Food Truck Locations**:
-    - Tap the **Map** button on the navigation bar.
-    - Food truck pins will be displayed on the map.
-
-2. **Viewing Food Truck Menu from Map**:
-    - Click on a food truck pin.
-    - The name of the food truck will appear; tap on it to view the menu.
-
-3. **Navigating to Food Truck**:
-    - Click the small map icon in the lower right corner.
-    - This will direct you to Google Maps for navigation to the selected food truck.
-
-### Post Button
-
-1. **Posting (For Subscribed Users Only)**:
-    - Tap the **Post** button on the navigation bar.
-    - Unsubscribed users will be prompted to log in for uploading a post.
-
-2. **Creating a Post**:
-    - Tap the pencil icon.
-    - Enter a title and content for your post.
-    - If you try to save without filling in both fields, you will see a message: "Title and contents must be filled"
-    - Click **SAVE** button, when post is ready.
-
-3. **Resetting Post's Images**:
-    - Tap the **RESET** button to clear any images attached to the post.
-
-## Screenshots and Examples
-
-### Login/Sign Up
-
-#### Login
-<img src="uploads/c5c8bab39a42a99d75467aa6173a015a/image.png" alt="Food Truck List" width="300"/>
-Example: Log in page.
-
-#### Register
-<img src="uploads/9b4bf24a1a076d773cdb503ce53830c6/image.png" alt="Food Truck List" width="300"/>
-<img src="uploads/ff2988e7391d81c0326994b94c7e3536/image.png" alt="Food Truck List" width="300"/>
-Example: Form of create account.
-
-### Home Button
-
-#### Main Page
-<img src="uploads/eebb711ed96aee6fc6c614d6764d3a09/image.png" alt="Food Truck List" width="300"/>
-Example: Main page of the app.
-
-### Trucks Button
-
-#### Viewing Food Truck List
-<img src="uploads/9fb680057c9775a90a32fe00fd6a5040/image.png" alt="Food Truck List" width="300"/>
-Example: List of all available food trucks.
-
-#### Filtering Cuisine Type
-<img src="uploads/4e4ff99114d3a1386522bc74e9861296/image.png" alt="Food Truck List" width="300"/>
-<img src="uploads/d55fe3cbcda1bdc97800ce47fe2348e0/image.png" alt="Food Truck List" width="300"/>
-Example: Result of filtering food trucks.
-
-#### Viewing Food Truck Menu
-<img src="uploads/469fb39ba4530b5d3df8f6d6d7155d5e/image.png" alt="Food Truck List" width="300"/>
-Example: Menu details of a selected food truck.
-
-#### Adding Food Truck
-<img src="uploads/af129ddd0247cbee3b52487463e4b323/image.png" alt="Food Truck List" width="300"/>
-Example: Food truck details to add food truck.
-
-### Map Button
-
-#### Viewing Food Truck Locations
-<img src="uploads/6d39ae8c7dcc21b9cb396c5c4068bbff/image.png" alt="Food Truck List" width="300"/>
-Example: Map showing locations of food trucks with pins.
-
-#### Viewing Food Truck Menu
-<img src="uploads/b3e237dcd434253ed09d0397da2999ab/image.png" alt="Food Truck List" width="300"/>
-Example: Menu details of a selected food truck.
-
-#### Navigation to Food Truck
-<img src="uploads/ff8c1bd5c28379ea9d47af24b6559bc2/image.png" alt="Food Truck List" width="300"/>
-Example: Google Maps interface for navigating to a food truck.
-
-### Post Button
-
-#### Checking a Post
-<img src="uploads/720e3d793451cf3d78666a92fe83278d/image.png" alt="Food Truck List" width="300"/>
-Example: Interface for viewing posts.
-
-#### Creating and Reset(Images) a Post
-<img src="uploads/d66ba2c9add48c67a8bfbce6d0724117/image.png" alt="Food Truck List" width="300"/>
-<img src="uploads/616cc58bc2399053829731ad86c7da24/image.png" alt="Food Truck List" width="300"/>
-<img src="uploads/38ee59cfd9e3ac09a6a00a8a2fce84b6/image.png" alt="Food Truck List" width="300"/>
-Example: Interface for creating a new post (for subscribed users only) and "Title and content must be filled" error when trying to save without title and content. Additionally, showing the reset button to clear images.
-
----
-
-We hope this user guide helps you make the most of the Philly Foodies app. Enjoy finding and exploring delicious food trucks in your area! If you encounter any issues or have any questions, please reach out to us.
